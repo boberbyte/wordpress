@@ -1,6 +1,6 @@
 # wordpressdemo
 
-This is a demo of OpenShift for students at Lernia education.
+This is a demo of Wordpress in OpenShift for students.
 
 ## The namespace
 
