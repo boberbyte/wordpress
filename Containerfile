@@ -1,7 +1,7 @@
 # Docker image med centos senaste, PHP innstallerat samt wordpress 6.7.1
 FROM docker.io/redhat/ubi9:latest
 
-# installayion php
+# installation php
 ENV WORDPRESS_VERSION=6.7.1
 # PHP installation
 RUN yum install -y \
