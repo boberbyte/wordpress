@@ -3,7 +3,7 @@ FROM docker.io/redhat/ubi9:latest
 
 # installation php
 ENV WORDPRESS_VERSION=6.7.1
-# PHP installation
+
 RUN yum install -y \
         httpd \
         php \
