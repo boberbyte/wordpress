@@ -28,7 +28,7 @@ RUN chown -R apache:apache /var/www/html \
     && chmod -R 755 /var/www/html
 
 # Katalogen för wordpress /var/www/html/ (<innan)
-WORKDIR /var/www/html/
+WORKDIR /var/www/html/wordpress/
 
 
 #Ändring konfigurations APACHE till port8080 med sed 
