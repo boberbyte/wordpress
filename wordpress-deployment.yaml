@@ -12,6 +12,7 @@ spec:
     metadata:
       labels:
         app: wordpress
+        version: 'latest'
     spec:
       containers:
       - name: wordpress-app
