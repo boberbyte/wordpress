@@ -27,11 +27,7 @@ RUN wget https://wordpress.org/latest.zip -O /tmp/wordpress.zip && unzip /tmp/wo
 RUN chown -R apache:apache /var/www/html \
     && chmod -R 755 /var/www/html
 
-<<<<<<< HEAD
 # Katalogen för wordpress
-=======
-# Katalogen för wordpress /var/www/html/ (<innan)
->>>>>>> bfae555f00d6e4332845c2416154dc540b8f63b3
 WORKDIR /var/www/html/wordpress/
 
 
