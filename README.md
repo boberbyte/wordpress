@@ -1,4 +1,4 @@
-# wordpressdemo for OpenShift
+# wordpress demo for OpenShift
 
 This is a demo of Wordpress in OpenShift for students.
 
