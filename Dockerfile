@@ -34,8 +34,8 @@ WORKDIR /var/www/html/wordpress/
 #Ändring konfiguration för APACHE till port8080 med sed 
 RUN sed -i 's/Listen 80/Listen 8080/' /etc/httpd/conf/httpd.conf
 
-#ändring 2
-RUN touch BOBER.KURWA
+#ändring 3
+RUN touch HEJ.HEJ
 
 
 # öppnar port 8080 i poden
