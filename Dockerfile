@@ -43,6 +43,5 @@ EXPOSE 8080
 CMD ["php", "-S", "0.0.0.0:8080", "-t", "/var/www/html/wordpress/"]
 #CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
 
-#test av ny verison 
-RUN touch test.hej
+
 
