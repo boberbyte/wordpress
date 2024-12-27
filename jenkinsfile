@@ -1,0 +1,91 @@
+pipeline {
+    agent any
+
+    environment {
+        // Define OpenShift and Quay credentials
+        OPENSHIFT_API = 'https://api.cluster5.karoshi.se:6443'
+        QUAY_REGISTRY = 'quay.io/riegerj/'
+        IMAGE_NAME = 'boberpress'
+        IMAGE_TAG = 'latest'
+        DEPLOYMENT_NAME = 'wordpress'
+        OC_TOKEN = credentials(OCP_TOKEN)   #fel  OC_TOKEN = credentials(OCP_TOKEN) 
+        NAMESPACE = 'julian'
+    }
+
+    stages {
+        stage('Checkout Code') {
+            steps {
+                echo "Checking out code..."
+                checkout scm
+            }
+        }
+
+        stage('Login to Quay and OpenShift') {
+            steps {
+                script {
+                    echo "Logging in to OpenShift and Quay.io..."
+                    
+                    // Login to OpenShift CLI
+                    sh '''
+                    oc login ${OPENSHIFT_API} --token=${OCP_TOKEN} --insecure-skip-tls-verify=true
+                    '''
+
+                    // Login to Quay.io Docker registry
+                    sh '''
+                    
+                    '''
+                }
+            }
+        }
+
+        stage('Build and Push Image') {
+            steps {
+                script {
+                    echo "Building container image and pushing to Quay.io..."
+                    
+                    // Build Docker image
+                    sh '''
+                    docker build -t ${QUAY_REGISTRY}/${IMAGE_NAME}:${IMAGE_TAG} .
+                    '''
+
+                    // Push image to Quay
+                    sh '''
+                    docker push ${QUAY_REGISTRY}/${IMAGE_NAME}:${IMAGE_TAG}
+                    '''
+                }
+            }
+        }
+
+        stage('Deploy to OpenShift') {
+            steps {
+                script {
+                    echo "Deploying image to OpenShift..."
+                    
+                    // Create or update OpenShift deployment
+                    sh '''
+                    oc project ${NAMESPACE}
+                    
+                    # Check if deployment exists, then apply changes
+                    oc get deployment ${DEPLOYMENT_NAME} || \
+                    oc new-app --name=${DEPLOYMENT_NAME} ${QUAY_REGISTRY}/${IMAGE_NAME}:${IMAGE_TAG}
+                    
+                    # Update image stream
+                    oc set image deployment/${DEPLOYMENT_NAME} ${IMAGE_NAME}=${QUAY_REGISTRY}/${IMAGE_NAME}:${IMAGE_TAG}
+                    
+                    # Ensure rollout is successful
+                    oc rollout status deployment/${DEPLOYMENT_NAME}
+                    '''
+                }
+            }
+        }
+    }
+
+    post {
+        success {
+            echo "Deployment successful!"
+        }
+        failure {
+            echo "Deployment EPICE FAIL!. Check logs for errors."
+        }
+    }
+}
