@@ -17,6 +17,7 @@ RUN yum install -y \
         wget \
         tar \
         unzip \
+	btop \
     && yum clean all
 
 
