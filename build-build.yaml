@@ -1,0 +1,26 @@
+apiVersion: shipwright.io/v1beta1
+kind: Build
+metadata:
+  name: build-bobrpress
+spec:
+  output:
+    image: 'docker.io/drmuffkiss/wordpress:tag'
+    pushSecret: dockerhub-secret
+  paramValues:
+    - name: dockerfile
+      value: Dockerfile
+  source:
+    contextDir: .
+    git:
+      url: 'https://github.com/Don-Julian/wordpress/'
+    type: Git
+  trigger: 
+  when:
+   -: push and pull-request on the main branch 
+   type: Githhub
+   events:
+   - push
+   - push 
+  strategy:
+    kind: ClusterBuildStrategy
+    name: buildah

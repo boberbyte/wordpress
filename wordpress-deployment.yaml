@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: wordpress-app
-        image: quay.io/riegerj/boberpress:latest
+        image: image-registry.openshift-image-registry.svc:5000/julian/wordpress-stream
         imagePullPolicy: Always
         ports:
         - containerPort: 8080

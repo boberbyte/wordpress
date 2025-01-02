@@ -9,7 +9,7 @@ spec:
   - annotations: null
     from:
       kind: DockerImage
-      name: quay.io/riegerj/boberpress:latest
+      name: 'docker.io/drmuffkiss/wordpress:latest'
     importPolicy:
       importMode: Legacy
       scheduled: true
