@@ -46,7 +46,7 @@ CMD ["php", "-S", "0.0.0.0:8080", "-t", "/var/www/html/wordpress/"]
 #CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
 
 #testing testing
-RUN touch Mjau
+RUN touch JOOOOOONAS
 
 
 
