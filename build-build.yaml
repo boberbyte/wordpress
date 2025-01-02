@@ -4,7 +4,7 @@ metadata:
   name: build-bobrpress
 spec:
   output:
-    image: 'docker.io/drmuffkiss/wordpress:tag'
+    image: 'docker.io/drmuffkiss/wordpress:latest'
     pushSecret: dockerhub-secret
   paramValues:
     - name: dockerfile
