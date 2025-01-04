@@ -4,7 +4,7 @@ kind: Deployment
 metadata:
   name: wordpress
   annotations:
-    image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"wordpress-stream:latest"},"fieldPath":"spec.template.spec.containers[?(@.name==\"wordpress-app\")].image"}]'
+    image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"wordpress:latest"},"fieldPath":"spec.template.spec.containers[?(@.name==\"wordpress\")].image"}]'
 
 spec:
 
@@ -19,8 +19,8 @@ spec:
         version: 'latest'
     spec:
       containers:
-      - name: wordpress-app
-        image: 'docker.io/drmuffkiss/wordpress:latest'
+      - name: wordpress
+        image: 'wordpress-steam:latest'
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
