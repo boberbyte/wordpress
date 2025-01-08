@@ -1,4 +1,4 @@
-# Docker image med redhat ubi 9, PHP installerat samt wordpress 6.7.1
+# Docker image med redhat ubi 9, PHP installerat samt Boberpress 6.7.1
 FROM docker.io/redhat/ubi9:latest
 
 # installayion php
@@ -45,8 +45,8 @@ EXPOSE 8080
 CMD ["php", "-S", "0.0.0.0:8080", "-t", "/var/www/html/wordpress/"]
 #CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
 
-#testing testing
-RUN touch JOOOOOONAS
+
+RUN touch Bober was here
 
 
 
