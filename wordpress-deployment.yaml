@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: wordpress
-        image: 'wordpress-steam:latest'
+        image: docker.io/drmuffkiss/wordpress:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
