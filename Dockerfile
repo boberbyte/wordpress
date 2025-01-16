@@ -34,19 +34,16 @@ WORKDIR /var/www/html/wordpress/
 #Ändring konfiguration för APACHE till port8080 med sed 
 RUN sed -i 's/Listen 80/Listen 8080/' /etc/httpd/conf/httpd.conf
 
-#ändring 3
-RUN touch HEJ.HEJ
-
 
 # öppnar port 8080 i poden
 EXPOSE 8080
 
 # Startar php med port 8080 från /wordpress
 CMD ["php", "-S", "0.0.0.0:8080", "-t", "/var/www/html/wordpress/"]
-#CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
+
 
 #testing testing
-RUN touch JOOOOOONAS
+RUN touch boberbyte
 
 
 
