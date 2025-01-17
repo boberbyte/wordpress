@@ -35,16 +35,15 @@ WORKDIR /var/www/html/wordpress/
 RUN sed -i 's/Listen 80/Listen 8080/' /etc/httpd/conf/httpd.conf
 
 
-
 # öppnar port 8080 i poden
 EXPOSE 8080
 
 # Startar php med port 8080 från /wordpress
 CMD ["php", "-S", "0.0.0.0:8080", "-t", "/var/www/html/wordpress/"]
-#CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
 
 
-RUN touch Bober_was_here
+RUN touch boberbyte
+
 
 
 
