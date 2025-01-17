@@ -85,7 +85,7 @@ pipeline {
             echo "Deployment successful!"
         }
         failure {
-            echo "Deployment EPICE FAIL!. Check logs for errors."
+            echo "Deployment EPIC FAIL!. Check logs for errors."
         }
     }
 }
