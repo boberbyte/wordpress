@@ -12,7 +12,7 @@ spec:
   source:
     contextDir: .
     git:
-      url: 'https://github.com/Don-Julian/wordpress/'
+      url: 'https://github.com/boberbyte/wordpress/'
     type: Git
   trigger: 
   when:
